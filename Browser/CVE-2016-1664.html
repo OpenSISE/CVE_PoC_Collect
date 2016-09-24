@@ -1,0 +1,34 @@
+<html>
+
+<a href="https://www.youtube.com">go to youtube</a>
+<br>
+
+
+<iframe id="1" src="http://www.eurosport.fr"></iframe>
+
+
+<button onclick="document.getElementById('1').src='https://fr.wikipedia.org';">iframe 2</button>
+
+
+<button onclick="attack()">Start Attack</button>
+
+
+<script>
+
+
+function attack(){
+
+for(var i=0;i<2;i++){
+
+window.history.forward();
+
+}
+
+
+}
+
+
+</script>
+
+
+</html>
